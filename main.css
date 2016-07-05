@@ -7,27 +7,43 @@ h1.title {
 }
 
 div.tabbox {
-    margin: 0px; padding: 0px; width: 400px;
+    margin: 0px;
+    padding: 0px;
+    width: 400px;
 }
+
 p.tabs {
     margin: 0px;
     padding: 0px;
 }
+
 p.tabs a {
-    display: block; width: 5em; float: left;
-    margin: 0px 1px 0px 0px; padding: 3px;
+    display: block;
+    width: 5em;
+    float: left;
+    margin: 0px 1px 0px 0px;
+    padding: 3px;
     text-align: center;
     border-radius: 12px 12px 0px 0px;
 }
+
 p.tabs a.tab-select {
     background-color: darkgray;
     color: white;
 }
+
 p.tabs a:hover {
     color: black;
 }
 
-
 /* タブ中身のボックス */
-div.tab { height: 150px; overflow: auto; clear: left; }
-div.tab p { margin: 0.5em; }
+div.tab-component {
+    height: 150px;
+    overflow: auto;
+    clear: left;
+    display: none;
+}
+
+div.tab-component p {
+    margin: 0.5em;
+}

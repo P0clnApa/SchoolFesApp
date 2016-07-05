@@ -4,9 +4,6 @@
         <title>Test</title>
         <script src="lib/jquery.min.js"></script>
         <link rel="stylesheet" type="text/css" href="main.css">
-        <script>
-            var tabArray = new Array();
-        </script>
         <script src="main.js"></script>
     </head>
     <body>
@@ -17,18 +14,14 @@
             <p class="tabcomp">
             </p>
         </div>
-        <script src="js/tabinit.js"></script>
-
         <script>
-            ChangeTab("Top");
+            tabInit;
         </script>
     </body>
 </html>
 
 <!--
-'<a href="#ID" class="tab-select" onclick="ChangeTab("ID");">タブの選択サンプル</a>
+<a href="#<ID>" class="tab-select" onclick="ChangeTab("<ID>");">タブの選択サンプル</a>
 
-<div id="tab1" class="tab">
-    <p>タブの内容サンプル</p>
-</div>
+<div id="<ID>" class="tab-component"> <p>タブの内容サンプル</p> </div>
 -->
