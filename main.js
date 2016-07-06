@@ -29,7 +29,7 @@ tabInit = $(function () {
             var tab = this.name;
             $($format("<a href=\"#{0}\" class=\"tab-select\" onclick=\'ChangeTab\(\"{0}\"\);\'>{0}</a>", tab))
                 .appendTo(tabdir);
-            $($format("<div id=\"{0}\" class=\"tab-component\"> <p>商品: {1}</p> </div>", tab, this.productName))
+            $($format("<div id=\"{0}\" class=\"tab-component\"> <p>{1}</p> </div>", tab, this.description))
                 .appendTo(tabcompdir)
         })
     });
