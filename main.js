@@ -41,9 +41,20 @@ function ChangeTab(tabname) {
         list[i].style.display = 'none';
     }
     document.getElementById(tabname).style.display = 'block';
-    document.getElementById('UnitSales').value = getUnitSales(tabname);
+    getUnitSales(tabname)
 }
 
 function getUnitSales(tabname) {
-    return Math.floor(Math.random() * 100000);
+    return HTMLGET('http://localhost:26730/units/' + tabname);
 }
+
+function HTMLGET(url) {
+    $.ajax({
+        url      : url,
+        dataType : "jsonp"
+    });
+}
+
+function callbackUnits(json){
+    document.getElementById('UnitSales').value = ('000000' + json.Units).slice(-6);
+};
