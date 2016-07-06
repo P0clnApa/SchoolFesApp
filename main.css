@@ -36,7 +36,6 @@ p.tabs a:hover {
     color: black;
 }
 
-/* タブ中身のボックス */
 div.tab-component {
     height: 150px;
     overflow: auto;
