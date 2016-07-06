@@ -2,15 +2,19 @@
   "tabs": [
     {
       "name": "Top",
-      "description": "これは学校用学園祭アプリの試作です<br>適当レイアウトは気にしないように"
+      "productName": "ないよ！"
     },
     {
       "name": "2B",
-      "description": "商品: りんご飴"
+      "productName": "りんご飴"
     },
     {
       "name": "2C",
-      "description": "商品: ポップコーン"
+      "productName": "ポップコーン"
+    },
+    {
+      "name": "2D",
+      "productName": "なにするの？"
     }
   ]
 }
