@@ -27,7 +27,7 @@ tabInit = $(function () {
     $.getJSON(jsonDir, function (data) {
         $(data.tabs).each(function () {
             var tab = this.name;
-            $($format("<a href=\"#{0}\" class=\"tab-select\" onclick=\'ChangeTab\(\"{0}\"\);\'>{0}</a>", tab))
+            $($format("<a class=\"tab-select\" onclick=\'ChangeTab\(\"{0}\"\);\'>{0}</a>", tab))
                 .appendTo(tabdir);
             $($format("<div id=\"{0}\" class=\"tab-component\"> <p>{1}</p> </div>", tab, this.description))
                 .appendTo(tabcompdir)
@@ -41,4 +41,9 @@ function ChangeTab(tabname) {
         list[i].style.display = 'none';
     }
     document.getElementById(tabname).style.display = 'block';
+    document.getElementById('UnitSales').value = getUnitSales(tabname);
+}
+
+function getUnitSales(tabname) {
+    return Math.floor(Math.random() * 100000);
 }
