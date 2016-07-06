@@ -2,19 +2,19 @@
   "tabs": [
     {
       "name": "Top",
-      "productName": "ないよ！"
+      "description": "これは学園祭用テストページです。<br>適当？気にしない"
     },
     {
       "name": "2B",
-      "productName": "りんご飴"
+      "description": "商品: りんご飴"
     },
     {
       "name": "2C",
-      "productName": "ポップコーン"
+      "description": "商品: ポップコーン"
     },
     {
       "name": "2D",
-      "productName": "なにするの？"
+      "description": "しらないおじさん"
     }
   ]
 }
