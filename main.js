@@ -35,27 +35,47 @@ tabInit = $(function () {
                 .appendTo(tabcompdir);
             Saves[tab] = this.save;
         });
-        $("<a class=\"tab-select\" onclick=\'ChangeTab\(\"Settings\"\);\'>Settings</a>").appendTo(tabdir);
-        $("<div id=\"Settings\" class=\"tab-component\"> " +
-            "<form name=\"SetCo\" id=\"SetCo\" style='margin: 10px; padding: 10px;'> " +
+        $("<form name=\"SetCo\" id=\"SetCo\" style='margin: 10px; padding: 10px;'> " +
             "<input type=\"text\" id=\"CoText\"/> " +
             "<input type=\"button\" value=\"Set\" onclick=\"setCookie(\'ViewPex\', getText(\'CoText\'), 3)\"/> " +
             "<input type=\"button\" value=\"Check\" onclick=\"alert(getCookie(\'ViewPex\'))\"/> " +
-            "</form> </div>")
-            .appendTo(tabcompdir);
+            "</form>")
+            .appendTo("#Settings");
     });
 });
 
 function ChangeTab(tabname) {
+    c_tab(tabname);
+    c_form(tabname);
+    if(tabname == "Top" || tabname == "Settings") return;
+    getUnitSales(tabname);
+}
+
+function c_tab(tabname) {
     var list = document.getElementsByClassName('tab-component');
     for (var i = 0; i < list.length; i++) {
         list[i].style.display = 'none';
     }
     document.getElementById(tabname).style.display = 'block';
-    document.forms.MainForm.TabName.value = tabname;
-    document.forms.MainForm.style.display = ((getCookie("ViewPex").indexOf(Saves[tabname].key) !== -1) ? 'block' : 'none');
-    if(tabname == "Top" || tabname == "Settings") return;
-    getUnitSales(tabname);
+}
+
+function c_form(tabname) {
+    var form = document.forms.MainForm;
+    form.TabName.value = tabname;
+    form.Unit.value = 0;
+    form.Age.value = 0;
+    if (Saves[tabname].age == false || Saves[tabname].age == undefined) { document.getElementById("AgeField").style.display = 'none';
+    } else { document.getElementById("AgeField").style.display = 'block'; }
+    $("#Taste").html("");
+    if (Saves[tabname].taste == false || Saves[tabname].taste == undefined) { document.getElementById("TasteField").style.display = 'none';
+    } else {
+        $(Saves[tabname].tastes).each(function () {
+            console.log(this.toString());
+           $($format("<option>{0}</option>", this.toString())).appendTo("#Taste");
+        });
+        document.getElementById("TasteField").style.display = 'block';
+    }
+    form.style.display = ((getCookie("ViewPex").indexOf(Saves[tabname].key) !== -1) ? 'block' : 'none');
 }
 
 function setCookie(c_name,value,expiredays){
@@ -107,6 +127,7 @@ function getUnitSales(tabname) {
     });
 }
 
+// TODO; 送信
 function setUnitSales() {
     var form = document.forms.MainForm;
     var name = form.TabName.value;

@@ -14,7 +14,7 @@
       "save": {
         "age": false,
         "taste": false,
-        "key": "fghij"
+        "key": "a"
       }
     },
     {
@@ -24,11 +24,11 @@
         "age": true,
         "taste": true,
         "tastes": [
-          "味1-1",
-          "味2-1",
-          "味3-1"
+          "塩",
+          "キャラメル",
+          "なんか"
         ],
-        "key": "klmno"
+        "key": "a"
       }
     },
     {
@@ -37,7 +37,15 @@
       "save": {
         "age": true,
         "taste": false,
-        "key": "pqrst"
+        "key": "a"
+      }
+    },
+    {
+      "name": "Settings",
+      "description": "詳細設定",
+      "save": {
+        "age": false,
+        "taste": false
       }
     }
   ]
