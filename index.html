@@ -4,21 +4,37 @@
         <title>Test</title>
         <script src="lib/jquery.min.js"></script>
         <link rel="stylesheet" type="text/css" href="main.css">
-        <script src="main.js"> </script>
+        <script src="main.js"></script>
     </head>
+
     <body>
         <h1 class="title">学校用 会計アプリ</h1>
+
         <div class="tabbox">
             <p class="tabs">
             </p>
             <p class="tabcomp">
             </p>
+
             <div>販売個数</div>
-            <input id='UnitSales' type="text" readonly="readonly" value="114514"/>
+            <input id='UnitSales' type="text" readonly="readonly" value="0454"/>
             <span>個</span>
+
+            <form id="MainForm" style="border: double; width: fit-content; display: none;">
+                <input id="TabName" type="hidden" value="">
+                <span>個数: </span> <input id="Unit" type="number"/> <br>
+                <span>年代: </span> <input id="Old" type="number"/> <br>
+                <span>味 　:</span>
+                <select id="Taste">
+                    <option>味1</option>
+                    <option>味2</option>
+                    <option>味3</option>
+                    <option>味4</option>
+                </select> <br>
+                <input type="button" value="送信" onclick="setUnitSales()">
+            </form>
         </div>
-        <script>
-            tabInit;
-        </script>
+
+        <script> tabInit; </script>
     </body>
 </html>

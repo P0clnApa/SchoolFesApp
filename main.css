@@ -9,7 +9,6 @@ h1.title {
 div.tabbox {
     margin: 0px;
     padding: 0px;
-    width: 400px;
 }
 
 p.tabs {
@@ -52,7 +51,7 @@ div.tab-component p {
 }
 
 #UnitSales {
-    width: 18vh;
+    width: 15vh;
     height: 5%;
     font-size: 5vh;
 }

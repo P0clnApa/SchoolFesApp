@@ -2,19 +2,43 @@
   "tabs": [
     {
       "name": "Top",
-      "description": "これは学園祭用テストページです。<br>適当？気にしない"
+      "description": "これは学園祭用テストページです。<br>適当？気にしない",
+      "save": {
+        "age": false,
+        "taste": false
+      }
     },
     {
       "name": "2B",
-      "description": "商品: りんご飴"
+      "description": "商品: りんご飴",
+      "save": {
+        "age": false,
+        "taste": false,
+        "key": "fghij"
+      }
     },
     {
       "name": "2C",
-      "description": "商品: ポップコーン"
+      "description": "商品: ポップコーン",
+      "save": {
+        "age": true,
+        "taste": true,
+        "tastes": [
+          "味1-1",
+          "味2-1",
+          "味3-1"
+        ],
+        "key": "klmno"
+      }
     },
     {
       "name": "2D",
-      "description": "しらないおじさん"
+      "description": "しらないおじさん",
+      "save": {
+        "age": true,
+        "taste": false,
+        "key": "pqrst"
+      }
     }
   ]
 }
