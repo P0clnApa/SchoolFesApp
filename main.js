@@ -70,7 +70,6 @@ function c_form(tabname) {
     if (Saves[tabname].taste == false || Saves[tabname].taste == undefined) { document.getElementById("TasteField").style.display = 'none';
     } else {
         $(Saves[tabname].tastes).each(function () {
-            console.log(this.toString());
            $($format("<option>{0}</option>", this.toString())).appendTo("#Taste");
         });
         document.getElementById("TasteField").style.display = 'block';
@@ -122,32 +121,33 @@ function getCookie(c_name){
 }
 
 function getUnitSales(tabname) {
-    return HTMLGET('http://localhost:26730/school/units?group=' + tabname, function (json) {
+    return HTMLSend("GET", 'http://localhost:26730/school/units?group=' + tabname, function (json) {
         document.getElementById('UnitSales').value = ('0000' + json.Units).slice(-4);
     });
 }
 
-// TODO; 送信
 function setUnitSales() {
     var form = document.forms.MainForm;
-    var name = form.TabName.value;
-    var unit = form.Unit.value;
-    var old = form.Old.value;
-    var tasteSelect = form.Taste;
-}
-
-function HTMLGET(url, func) {
-    $.ajax({
-        type: 'GET',
-        url: url,
-        dataType: "jsonp",
-        success: func
-    });
-}
-
-function HTMLPOST(url) {
+    var tab = form.TabName.value;
+    if(form.Unit.value <= 0) return;
+    var url = "http://localhost:26730/school/units?group=" + tab
+    + "&units=" + form.Unit.value;
+    if(Saves[tab].age == true) url += "&age=" + form.Age.value;
+    if(Saves[tab].taste == true) {
+        var select = form.Taste;
+        url += "&taste=" + select.options[select.selectedIndex].text;
+    }
     $.ajax({
         type: 'POST',
         url: url
+    });
+}
+
+function HTMLSend(type, url, func) {
+    $.ajax({
+        type: type,
+        url: url,
+        dataType: "jsonp",
+        success: func
     });
 }
