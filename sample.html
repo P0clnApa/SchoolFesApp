@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sample</title>
+    <link rel="stylesheet" type="text/css" href="main.css">
+    <script src="lib/jquery.min.js"></script>
+    <script>
+        function ChangeTab(tabname) {
+            var list = document.getElementsByClassName('tab-component');
+            for (var i = 0; i < list.length; i++) {
+                list[i].style.display = 'none';
+            }
+            document.getElementById(tabname).style.display = 'block';
+            document.getElementById('UnitSales').value = getUnitSales(tabname);
+        }
+
+        function getUnitSales(tabname) {
+            return Math.floor(Math.random() * 100000);
+        }
+    </script>
+</head>
+
+<body>
+<h1 class="title">学校用 会計アプリ</h1>
+
+<div class="tabbox">
+    <p class="tabs">
+        <a class="tab-select" onclick='ChangeTab("Test");'>Test</a>
+    </p>
+    <p class="tabcomp">
+        <div id="Test" class="tab-component" style="display: block;"> <p> てすとぶんしょう </p> </div>
+    </p>
+
+    <div>販売個数</div>
+    <input id='UnitSales' type="text" readonly="readonly" value="0454"/>
+    <span>個</span>
+
+    <form id="MainForm" style="border: double; width: fit-content;">
+        <input id="TabName" type="hidden" value="">
+        <span>個数: </span> <input id="Unit" type="number"/> <br>
+        <div id="AgeField"> <span>年代: </span> <input id="Age" type="number"/> </div>
+        <div id="TasteField"> <span>味 　:</span> <select id="Taste"> </select> </div>
+        <input type="button" value="送信">
+        <input type="button" value="削除">
+    </form>
+</div>
+</body>
+</html>
