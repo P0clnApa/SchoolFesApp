@@ -120,8 +120,10 @@ function getCookie(c_name){
     return "";
 }
 
+var baseUrl = "http://localhost:26730/school";
+
 function getUnitSales(tabname) {
-    return HTMLSend("GET", 'http://localhost:26730/school/units?group=' + tabname, function (json) {
+    return HTMLSend("GET", baseUrl + '/units?group=' + tabname, function (json) {
         document.getElementById('UnitSales').value = ('0000' + json.Units).slice(-4);
     });
 }
@@ -130,13 +132,23 @@ function setUnitSales() {
     var form = document.forms.MainForm;
     var tab = form.TabName.value;
     if(form.Unit.value <= 0) return;
-    var url = "http://localhost:26730/school/units?group=" + tab
+    var url = baseUrl + '/units?group=' + tab
     + "&units=" + form.Unit.value;
     if(Saves[tab].age == true) url += "&age=" + form.Age.value;
     if(Saves[tab].taste == true) {
         var select = form.Taste;
         url += "&taste=" + select.options[select.selectedIndex].text;
     }
+    $.ajax({
+        type: 'POST',
+        url: url
+    });
+}
+
+function deleteLastUnit() {
+    var tab = document.forms.MainForm.TabName.value;
+    var url = baseUrl + "/units/del?group=" + tab;
+    console.log(url);
     $.ajax({
         type: 'POST',
         url: url
